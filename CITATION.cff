@@ -1,4 +1,4 @@
-@inproceedings{kejriwal23_interspeech,
+@software{kejriwal23_interspeech,
   author={Jay Kejriwal and Štefan Beňuš and Lina M. Rojas-Barahona},
   title={{Unsupervised Auditory and Semantic Entrainment Models with Deep Neural Networks}},
   year=2023,
