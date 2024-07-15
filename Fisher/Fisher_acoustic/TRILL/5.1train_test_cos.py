@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 import time
 
 st = time.time()
-featDim = 768
+featDim = 512
 
 class EntDataset(Dataset):
     def __init__(self, file_name):
@@ -34,9 +34,9 @@ class EntDataset(Dataset):
         
     def __getitem__(self, idx):
         hf = h5py.File(self.file_name, 'r')
-        X = hf['textdataset'][idx,0:featDim]
-        Y = hf['textdataset'][idx,featDim:2*featDim]
-        Z = hf['textdataset'][idx,0:2*featDim]
+        X = hf['audiodataset'][idx,0:featDim]
+        Y = hf['audiodataset'][idx,featDim:2*featDim]
+        Z = hf['audiodataset'][idx,0:2*featDim]
         hf.close()
         return (X,Y,Z)
 
@@ -52,9 +52,9 @@ class VAE(nn.Module):
   '''
   def __init__(self):
         super(VAE, self).__init__()
-        self.input_size=768
-        self.hidden_size=512
-        zdim=384
+        self.input_size=512
+        self.hidden_size=128
+        zdim=30
 
         self.fc1 = nn.Linear(self.input_size, self.hidden_size)
         self.bn1 = nn.BatchNorm1d(self.hidden_size)
@@ -93,7 +93,7 @@ class VAE(nn.Module):
       return z
   
 def loss_function(recon_x1, x2):
-    input_size = 768
+    input_size = 512
     BCE = F.smooth_l1_loss(recon_x1, x2.view(-1, input_size), reduction='sum')
     return BCE
 
@@ -139,9 +139,9 @@ if __name__ == '__main__':
   
   # Prepare MNIST dataset by concatenating Train/Test.Validation part
   #Speify input path of embeddings for training, validation and testing data
-  dataset_train_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/train_nonorm.h5')
-  dataset_val_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/val_nonorm.h5')
-  dataset_test_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/test_nonorm.h5')
+  dataset_train_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/Audio/train_nonorm.h5')
+  dataset_val_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/Audio/val_nonorm.h5')
+  dataset_test_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/Audio/test_nonorm.h5')
   dataset = ConcatDataset([dataset_train_part, dataset_val_part, dataset_test_part])
   
   # Define the K-fold Cross Validator
@@ -215,7 +215,7 @@ if __name__ == '__main__':
     print('Starting testing')
     
     # Saving the model at specified path
-    model_pth = f'/home/jay_kejriwal/Fisher/Processed/model/trained_VAE_text_BERT_new_1randomBERT{fold}.pt'
+    model_pth = f'/home/jay_kejriwal/Fisher/Processed/model/trained_VAE_audio_new_1randomTRILL{fold}.pt'
     torch.save(model, model_pth)
     # Evaluation for this fold
     model = torch.load(model_pth)
