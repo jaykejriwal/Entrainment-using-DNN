@@ -1,8 +1,11 @@
+#Program to pre-process text files 
+#The program removes unwanted characters and checks if the number of utterance by speakers is equal
 import glob
 import os
 import pandas as pd
-
+#Add input path of text files of the dataset
 list_of_files = glob.glob('/home/jay_kejriwal/Fisher/fe_03_p1_tran/data/trans/**/*.txt',recursive=True)
+#Add the output path of the dataset
 new_path = '/home/jay_kejriwal/Fisher/Processed/Text'
 
 def read_lexicon(filename):
