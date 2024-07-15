@@ -1,10 +1,13 @@
+#Program to resample wav files with 16khz sample rate
 import os
 import fnmatch
 import sys
 import subprocess
 import glob
 
+#Specify path of input wav files
 list_of_wav_files = glob.glob('/home/jay_kejriwal/Fisher/Processed/Audio/*.wav',recursive=True)
+#Specify output path
 new_path_resampled = '/home/jay_kejriwal/Fisher/Processed/Audio-resampled'
 
 def resample_wavfiles(filename):
