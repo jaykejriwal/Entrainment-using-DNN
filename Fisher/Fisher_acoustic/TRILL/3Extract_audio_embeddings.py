@@ -1,3 +1,5 @@
+#Program to extract TRILL embeddings
+
 import pandas as pd
 import torch
 from functools import reduce
@@ -26,7 +28,8 @@ assert tf.executing_eagerly()
 def get_TRILLv3_signal(signal,samplerate):
     global modulev3
     if modulev3==None:
-        print('******************\nLoading model ...\n******************')    
+        print('******************\nLoading model ...\n******************')   
+        #Specify path of TRILL model
         modulev3 = hub.load('/home/jay_kejriwal/Fisher/trill_extraction_v2/v3')
     
     
@@ -68,9 +71,13 @@ def get_TRILLv3_audiofile_from_to(wav_file,start,end):
 
     trill=get_TRILLv3_signal(signal,samplerate)
     return(trill)
-
-output_path = '/home/jay_kejriwal/Fisher/Processed/Embeddings/Audio'
+#Specify path of input audio files
 audio_path = '/home/jay_kejriwal/Fisher/Processed/Audio-resampled'
+
+#Specify output path where embeddings will be stored
+#Output Path for Audio 
+output_path = '/home/jay_kejriwal/Fisher/Processed/Embeddings/Audio'
+#Output Path for Text
 text_path= '/home/jay_kejriwal/Fisher/Processed/Text'
 all_files = os.listdir(text_path)
 for root, dirs, files in os.walk(text_path):
