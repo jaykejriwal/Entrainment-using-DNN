@@ -6,6 +6,23 @@ Python program for DNN models for detecting entrainment at auditory and semantic
 
 We utilized state-of-the-art DNN embeddings such as BERT and TRIpLet Loss network (TRILL) vectors to extract features for measuring semantic and auditory similarities of turns within dialogues in three spoken corpora, namely Columbia Games corpus, Voice Assistant conversation corpus, and Fisher corpus.
 
+
+## Required Software
+
+ffmpeg (Download from https://www.ffmpeg.org/download.html)
+
+sph2pipe (Download from https://www.openslr.org/3/)
+
+opensmile (https://github.com/audeering/opensmile)
+
+sentence-transformers (pip install sentence-transformers)
+
+tensorflow (pip install tensorflow)
+
+textgrid (Install textgrid from https://github.com/kylebgorman/textgrid)
+
+TRILL vectors model (Download from https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3)
+
 ## Execution instruction
 
 Firstly, train models with Fisher corpus. The programs need to be executed in a sequential format. 
