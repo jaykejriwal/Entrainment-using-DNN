@@ -13,7 +13,7 @@ frac_val = 0.1
 
 
 # Create h5 files
-
+# Specify path of embeddings
 sessListtext= sorted(glob.glob('/home/jay_kejriwal/Fisher/Processed/Embeddings/Text_semantic/*.txt',recursive=True))
 
 num_files_all = len(sessListtext)
@@ -36,6 +36,7 @@ for sess_file in sessTrain:
 
 
 X_train = X_train.astype('float64')
+# Save training data on specified loacation
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/semantic/train_nonorm.h5', 'w')
 hf.create_dataset('textdataset', data=X_train)
 hf.close()
@@ -50,6 +51,7 @@ for sess_file in sessVal:
     X_val=np.vstack([X_val, xx]) if X_val.size else xx
 
 X_val = X_val.astype('float64')
+# Save validation data on specified loacation
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/semantic/val_nonorm.h5', 'w')
 hf.create_dataset('textdataset', data=X_val)
 hf.close()
@@ -72,6 +74,7 @@ for sess_file in sessTest:
 
 
 X_test = X_test.astype('float64')
+# Save testing data on specified loacation
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/semantic/test_nonorm.h5', 'w')
 hf.create_dataset('textdataset', data=X_test)
 hf.close()
