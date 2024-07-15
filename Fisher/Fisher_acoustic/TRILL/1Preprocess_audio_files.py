@@ -3,8 +3,9 @@ import fnmatch
 import sys
 import subprocess
 import glob
-
+#Add path of audio files of the dataset
 list_of_files = glob.glob('/home/jay_kejriwal/Fisher/fisher03_audio/*.sph',recursive=True)
+#Output path
 new_path = '/home/jay_kejriwal/Fisher/Processed/Audio'
 
 def convert_sphfiles(filename):
