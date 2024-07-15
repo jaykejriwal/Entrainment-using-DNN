@@ -1,4 +1,4 @@
-#Program to use smooth L1 loss as cost function with 1 random variables
+#Program to use cosine distance with 1 random variables
 import os
 import numpy as np
 import torch
@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 import time
 
 st = time.time()
-featDim = 512
+featDim = 228
 
 class EntDataset(Dataset):
     def __init__(self, file_name):
@@ -52,7 +52,7 @@ class VAE(nn.Module):
   '''
   def __init__(self):
         super(VAE, self).__init__()
-        self.input_size=512
+        self.input_size=228
         self.hidden_size=128
         zdim=30
 
@@ -93,7 +93,7 @@ class VAE(nn.Module):
       return z
   
 def loss_function(recon_x1, x2):
-    input_size = 512
+    input_size = 228
     BCE = F.smooth_l1_loss(recon_x1, x2.view(-1, input_size), reduction='sum')
     return BCE
 
