@@ -1,3 +1,4 @@
+#The program extracts semantic embeddings from each text file of the dataset
 import pandas as pd
 import glob
 import os
@@ -16,7 +17,10 @@ print('Loading Transformer...')
 model = SentenceTransformer('sentence-transformers/msmarco-distilbert-dot-v5')
 #model = SentenceTransformer('T-Systems-onsite/cross-en-de-roberta-sentence-transformer')
 
+#Input path of text files of the dataset
 list_of_files = glob.glob('/home/jay_kejriwal/Fisher/Processed/Text/*.txt',recursive=True) 
+
+#Specify output path where embeddings will be stored 
 output_path = '/home/jay_kejriwal/Fisher/Processed/Embeddings/Text_semantic'
 
 for file_name in list_of_files:
