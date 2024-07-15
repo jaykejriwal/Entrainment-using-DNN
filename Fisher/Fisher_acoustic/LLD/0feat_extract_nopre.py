@@ -18,11 +18,16 @@ import pdb
 import math
 
 # -----------------
+#Add audio dataset path
 def_wav = '/home/jay_kejriwal/Fisher/fisher03_audio/fe_03_00708.sph'
-config_path = '/home/jay_kejriwal/Fisher/Programs/LLD/emobase2010_haoqi_revised.conf'
-out_dir = '/home/jay_kejriwal/Fisher/Processed/Embeddings/LLD'
+#Add text dataset path
 transcript_dir='/home/jay_kejriwal/Fisher/fisher03_text'
+#Add a path where raw features will be saved for pre-processing
 feat_dir = '/home/jay_kejriwal/Fisher/Programs/LLD/raw_features'
+#Add open smile configuration file path
+config_path = '/home/jay_kejriwal/Fisher/Programs/LLD/emobase2010_haoqi_revised.conf'
+#Add a path where output needs to be saved
+out_dir = '/home/jay_kejriwal/Fisher/Processed/Embeddings/LLD'
 
 
 IPU_gap=50
