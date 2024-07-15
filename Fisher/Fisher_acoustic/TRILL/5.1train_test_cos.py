@@ -137,7 +137,8 @@ if __name__ == '__main__':
   # Set fixed random number seed
   torch.manual_seed(42)
   
-  # Prepare MNIST dataset by concatenating Train/Test part; we split later.
+  # Prepare MNIST dataset by concatenating Train/Test.Validation part
+  #Speify input path of embeddings for training, validation and testing data
   dataset_train_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/train_nonorm.h5')
   dataset_val_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/val_nonorm.h5')
   dataset_test_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/semantic/test_nonorm.h5')
@@ -213,7 +214,7 @@ if __name__ == '__main__':
     # Print about testing
     print('Starting testing')
     
-    # Saving the model
+    # Saving the model at specified path
     model_pth = f'/home/jay_kejriwal/Fisher/Processed/model/trained_VAE_text_BERT_new_1randomBERT{fold}.pt'
     torch.save(model, model_pth)
     # Evaluation for this fold
