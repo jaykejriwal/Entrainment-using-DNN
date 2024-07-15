@@ -137,7 +137,8 @@ if __name__ == '__main__':
   # Set fixed random number seed
   torch.manual_seed(42)
   
-  # Prepare MNIST dataset by concatenating Train/Test part; we split later.
+  # Prepare MNIST dataset by concatenating Train/Test/Valdiation part
+  # Add path of training, validation and testing data
   dataset_train_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/LLD/train_nonorm.h5')
   dataset_val_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/LLD/val_nonorm.h5')
   dataset_test_part = EntDataset('/home/jay_kejriwal/Fisher/Processed/h5/LLD/test_nonorm.h5')
@@ -190,7 +191,7 @@ if __name__ == '__main__':
     # Print about testing
     print('Starting testing')
     
-    # Saving the model
+    # Saving the model at specified path
     model_pth = f'/home/jay_kejriwal/Fisher/Processed/model/trained_Fisher_LLD_1mserandom{fold}.pt'
     #torch.save(model, model_pth)
     # Evaluation for this fold
