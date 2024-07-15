@@ -13,7 +13,7 @@ frac_val = 0.1
 
 
 # Create h5 files
-
+#Specify input path as Embeddings for audio
 sessListaudio= sorted(glob.glob('/home/jay_kejriwal/Fisher/Processed/Embeddings/Audio/*.txt',recursive=True))
 
 num_files_all = len(sessListaudio)
@@ -36,6 +36,7 @@ for sess_file in sessTrain:
 
 
 X_train = X_train.astype('float64')
+#Specify output path for training data
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/Audio/train_nonorm.h5', 'w')
 hf.create_dataset('audiodataset', data=X_train)
 hf.close()
@@ -50,6 +51,7 @@ for sess_file in sessVal:
     X_val=np.vstack([X_val, xx]) if X_val.size else xx
 
 X_val = X_val.astype('float64')
+#Specify output path for validation data
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/Audio/val_nonorm.h5', 'w')
 hf.create_dataset('audiodataset', data=X_val)
 hf.close()
@@ -72,6 +74,7 @@ for sess_file in sessTest:
 
 
 X_test = X_test.astype('float64')
+#Specify output path for validation data
 hf = h5py.File('/home/jay_kejriwal/Fisher/Processed/h5/Audio/test_nonorm.h5', 'w')
 hf.create_dataset('audiodataset', data=X_test)
 hf.close()
