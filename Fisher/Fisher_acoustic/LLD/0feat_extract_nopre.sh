@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+#Add path of program where 0feat_extract_nopre.py is saved
 cmddir=/home/jay_kejriwal/Fisher/Programs/LLD
+#Add path of program where features needs to be saved
 featdir=/home/jay_kejriwal/Fisher/Programs/LLD/raw_features
 raw_featdir=/home/jay_kejriwal/Fisher/Programs/LLD/raw_features
+#Add path of dataset audio files
 audiodirroot=/home/jay_kejriwal/Fisher/fisher03_audio
 
 numParallelJobs=28
