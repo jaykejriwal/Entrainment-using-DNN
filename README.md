@@ -2,6 +2,8 @@
 
 Python program for DNN models for detecting entrainment at auditory and semantic linguistic levels.
 
+The program is adapted from https://github.com/nasir0md/unsupervised-learning-entrainment
+
 ## Dataset
 
 We utilized state-of-the-art DNN embeddings such as BERT and TRIpLet Loss network (TRILL) vectors to extract features for measuring semantic and auditory similarities of turns within dialogues in three spoken corpora, namely Columbia Games corpus, Voice Assistant conversation corpus, and Fisher corpus.
