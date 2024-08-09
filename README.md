@@ -2,7 +2,7 @@
 
 Python program for DNN models for detecting entrainment at auditory and semantic linguistic levels.
 
-The program is adapted from https://github.com/nasir0md/unsupervised-learning-entrainment
+The program for extracting auditory features is adapted from https://github.com/nasir0md/unsupervised-learning-entrainment
 
 ## Dataset
 
